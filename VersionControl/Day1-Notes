@@ -1,0 +1,179 @@
+Version Control
+================
+Verison is tracking of changes that has been done to a document or set of files
+Tracking can be done manually or using a tool
+
+- Version control is a tool or a system that will document/track the changes that has been done to a file or set of files
+- Version allows multiple people to work on the same set of information 
+- Allows us to have a snapshot of entire project
+
+Why version Control tool is important??
+
+1. Allows to keep history or backup the data of our files
+2. Multiple team members can collaborate at common location(repository)
+3. Track who did the change, when the change, where the change was done.
+
+
+Benefits of Version Control System:
+==================================
+- Restore to previous versions
+- Understand what happened
+- Backup of the files
+- collaborate
+- Store version of files
+- If we have a bug we can find out what and when the code screwed up.
+
+
+Version control System:
+==================================
+1. Local version control System - 
+
+RCS (Revision control system)
+
+- a practice of having VC tool in the local machine of the developer/user
+- local VC tool will keep record of the changes made by the developer to the files.
+
+Issuse: 
+- Multiple people cannot access those files and cannot collaborate
+- if the machine is not available, the actual file and VC files will be deleted.
+
+2. Centralized version Control system - 
+Example: SVN, perforce, drive, TFS
+
+- In CVS a central repository is maintained where all the versioned files are kept
+- users can checkin and checkout files from different machines
+
+Issues:
+- Dependent on internet
+- In case the central server fails, whole system goes down.
+
+3. Distributed Version control System 
+========================================
+Local Repository: 
+====================
+It is a location/folder within the local machine of the user/developer 
+where he will maintain versions of code files.
+
+
+
+
+===================================
+Role of VCS in DevOps lifecycle
+==================================
+- Planning stage - requirement documents can be version controlled.
+- Design phase - Design documents, blueprints, solution documents can be version controlled
+- development phase - source code, data, properties files, DB files, unit test cases can be version controlled
+- Testing phase - test data documents, reports, Automation scripts can be version controlled
+- Deployment phase - scripts, deployment commands, docker, Kubernetes manifest files can be version controlled
+- Operations - Infrastructure scripts, playbooks(Ansible code is written in playbooks) can be version controlled
+
+======================================
+
+Best practices for version control 
+======================================
+- Commit the code granularly
+- commit with a clear message
+- provide git configurations
+- Utilize the concept of branching 
+- Always have the latest copy of the project code in your local 
+- set up roles, teams and give proper access to the repositories with team members
+- Approval process has to be set 
+- Backup your repositories to data loss.
+- git squashing, to combine the commits
+
+
+
+
+
+Git 
+===
+- is a version control engine used for local version control
+- it is an open source tool,, available for free
+- available for all the OS
+- GIT is used as a command line interface tool 
+- git comes with a GUI on windows OS
+- Development IDEs come integrated with git and github
+- Revert, branching, merging, stashing, rebase, tagging, commits etc.
+
+How git works- how can we version control files using git :
+
+
+
+
+
+
+Demo 1: Create a working directory and a local repository
+==========================
+Switch to root user:
+
+# sudo su -
+
+Step 1: Create a working directory 
+
+# mkdir myproject
+
+# cd myproject 
+
+Step 2: Create some files in the working directory that we have to version control
+
+#  touch index1.html index2.html
+
+Step 3: Create a local repository:
+
+# git init
+
+# ls -al 
+
+.git folder is the local repository 
+
+====================================
+Demo 2: Configure the user and its email id which is going to commit into this local repo 
+
+GIT provides a simple git config tool that required 2 parameters
+
+user.name 
+user.email 
+
+This configuration is not for authentication or permission 
+This is just for git log to track which user has commited into the repository
+
+# git config --global user.name admin 
+
+# git config --global user.email admin@gmail.com
+
+Remove the configuration
+
+# git config --global --unset user.name 
+
+Add the configuration again 
+
+
+# git config --global user.name admin123
+
+Demo 3: Verison control the new files in Local repo 
+
+# git status 
+
+add the untracked file to staging area 
+
+# git add index1.html index2.html
+
+check the status of the files 
+
+# git status 
+
+One file is staged and other is unstaged (untracked)
+
+Commit the staged files 
+
+# git commit -m "added file index1.html and index2.html"
+
+Check the git log for commit details and config details 
+
+# git log 
+
+
+Check the files in the local repo 
+# git ls-files 
+
+==============================
