@@ -1,0 +1,238 @@
+
+Modify an exisitng tracked files and add those changes to local repo
+====================================================
+
+Take a file which is in local repo
+
+# git ls-files
+
+# vim index1.html
+
+Press i to add any data
+
+press ESC key and press :wq and pres senter key 
+& save the file
+
+# git status
+
+status of file is modified
+
+To add all the modification and commit them to local repo
+
+# git commit -a -m "added modifications"
+
+  
+Demo 2: Git log command to give history of commits performed
+
+#  git log  
+
+in this HEAD it is an object in git which represents the latest/recent commit id
+
+# git log --oneline
+
+Check commit history of every commit in a single line
+
+# git show <commid id>
+Shows what happened in that commit.
+
+See commits of a particular file:
+
+ git log --graph --all -- index1.html
+
+==========================================
+
+Create a file and add it to staging area .
+Can we bring it back to unstaged area(red) - yes you can 
+using restore command 
+
+# touch file.php
+
+# git add .
+
+# git status
+
+# git restore --staged file.php
+
+  
+
+
+RESET Operation:
+
+Create a new file --> commit on it
+
+touch resetdemo
+git add .
+git commit -m "added a new file resetdemo"
+
+Make some small modification on the file --> commit on it
+Make some small modification on the file --> commit on it
+Make some small modification on the file --> commit on it
+Make some small modification on the file --> commit on it
+Make some small modification on the file --> commit on it
+
+Which mean I will have a very length git commit history
+
+Every small change I have committed it
+
+We always want a clean and crisp commit history
+
+Git says, you can RESET your commit history
+
+   that means:
+     > we can Change the HEAD of the log
+     > we can delete commit ids
+     > we can move the changes from LR to Staging area
+     > we can move the changes from LR to Working area
+     > we can also permanently delete commits and changes in 
+LR and working directory
+
+the command is : git reset <commit id>
+
+What is it that we have to reset, > we want to reset the HEAD to the given <commit id>
+
+#  git reset d573778
+
+So what about the commits before the given the <commit id> --> they will get deleted
+
+So what about the changes we did as part of those commits?
+
+
+
+
+
+--hard
+=============================
+Observation: 
+ > In the git log, the commit history is reset -> all the commits which are above the given <commitID> get deleted
+ > Now the HEAD is the  <Commitid> given in the command
+ > All the changes of the deleted commits will also be permanently deleted
+
+
+
+# git log --oneline
+
+Select the commit id which is at the bottom of your log.
+
+
+
+# git reset --hard <commit id>
+
+Example : git reset --hard 04f432e
+
+
+
+
+
+Soft:
+=======================
+
+# echo "add content" >> index1.html
+
+# git add .
+
+# git commit -m "done modification1"
+
+
+# echo "add content again " >> index1.html
+
+
+# git add .
+
+# git commit -m "done modification2"
+
+# echo "add content again 123 " >> index1.html
+
+
+# git add .
+
+# git commit -m "done modification3" 
+
+
+# git log --oneline
+
+
+# git reset --soft <commitID>
+
+
+
+
+
+--soft:
+
+    Observation: 
+     > In the git log, the commit history is reset -> all the commits which are above the given <commitID> get deleted
+     > Now the HEAD is the  <Commitid> given in the command
+     > All the changes of the deleted commits will be back to the staging area.
+
+
+
+# git commit -m "all modifications together"
+
+
+# git reset --mixed <commit id>
+
+--mixed
+
+Observation: 
+ > In the git log, the commit history is reset -> all the commits which are above the given <commitID> get deleted
+ > Now the HEAD is the  <Commitid> given in the command
+ > All the changes of the deleted commits will be back to working directory
+
+
+# git add .
+
+# git commit -m "all modifications together"
+
+# git status
+
+
+Branching and Merging:
+
+   Create a feature branch in git  and switch to the branch
+
+========================================
+
+# git branch
+
+Create a new branch
+
+# git branch feature1
+
+Switch to the new branch
+
+# git checkout feature1
+
+[OR]
+
+Create a new branch and switch to the branch also
+
+# git checkout -b feature2
+
+3. Merge the commits/files of new branch to master
+
+Before merging always switch to the destination branch
+
+# git checkout master
+
+# git merge feature1 master
+
+< git merge sourcebranch destinationbranch>
+
+
+Check which branches are merged to master
+
+git branch -a --merged master
+
+Check which branches are not merged to master
+
+git branch -a --no-merged master
+
+
+4. Delete a branch which is not merged with master branch
+
+# git branch -D <branchname>
+
+Delete a branch whose commits have been merged with the master branch
+
+# git branch -d feature1
+
