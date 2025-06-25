@@ -1,0 +1,224 @@
+Demo: Merge conflict and resolve merge conflicts
+
+When we get conflicts
+
+ 
+
+To avoid conflicts
+
+ 
+Demo:
+
+Delete any branches you have, just master branch should be there
+
+# git branch -D <branch_name>
+
+Delete the commits on master and you should have a single commit id
+
+# git log --oneline 
+Copy the last commit id
+
+# git reset --hard <last_commit_id>
+
+Now you will have single branch - master
+
+
+1.	Create a new branch
+
+# git branch feature
+
+
+
+2.	On master branch create a file with login and commit
+
+# touch login
+
+Add some content
+
+# echo "changes on master" > login
+
+# git add .
+# git commit -m "changes on master"
+
+
+3.	Switch to branch feature
+
+# git checkout feature
+
+
+4.	On feature create a file with same name as login but differen content
+
+# touch login
+
+Add some content
+
+# echo "changes on feature" > login
+
+# git add .
+# git commit -m "changes on feature"
+
+
+
+5.	Now switch to master branch to do merge
+
+         # git checkout master
+
+# git merge feature master
+
+But here merge will not complete, we will get CONFLICT 
+
+
+6.	We have to resolve the conflict
+
+Open the login file
+
+# vim login
+
+Remove lines with special characters line === HEAD  and  >>>> feature
+
+# git status
+You will see unmerged paths on the file
+
+
+7.	Commit the merged changes
+
+# git commit -a -m  "resolve conflict"
+==================================
+GITHUB - Day 5-  22 March 2025
+=================================
+GITHUB account
+Remote repository
+Push in to remote repo using Personal Access token
+Push in to remote repo using SSH
+PULL and Fetch
+==================================
+Demo 1: GITHUB Account creation
+
+To create account in github:
+
+https://github.com/
+
+ 
+
+Click on signup
+
+Given valid email address
+Give password
+Give username
+Click on continue.
+
+ 
+
+An email will be sent on your mail id
+Verify the email
+And create the account
+
+> Login to github
+
+
+
+
+
+ 
+
+ 
+
+Continue for free
+
+ 
+
+
+Demo 2: Create a public remote repository on github
+
+Working on Remote repository:
+================================
+
+Create a repository:
+
+
+
+1.	> click on New button to create a remote repo
+> Name to the repository -> give any unique name
+> select public repo
+> click on Create repository
+
+ 
+
+=================================
+Create a Personal Access token on git HUb
+=========================================================
+
+Pls open the below link on a new browser:
+
+https://github.com/settings/tokens
+
+Go to personal Access token on left side → select Tokens(classic) → Click on generate new token → select classic → you will be on New personal access token (classic)
+Give below details
+
+Note : give any name to token
+Expiration: 30days
+Select scopes: select repo checkbox
+
+Scroll down and click on generate token
+
+ 
+
+Make sure to copy your personal access token now. You won’t be able to see it again!
+==============================
+Connect Local repo to remote repo:
+=========================================
+
+Go to git and execute this command
+
+# git checkout master
+
+Commit any pending changes
+
+# git add .
+
+# git commit -m "done"
+
+Now connect local git repor to remote repo
+
+  $ git remote add origin <your remote repo Path>
+
+Example like this:
+…
+ git remote add origin https://github.com/Sonal0409/myproject-08sep.git
+…
+
+Execute the command to check local and remote repo is set:
+
+  $ git remote -v
+
+ 
+PUSH the master branch to remote repo
+===========================
+
+On the remote repo we have no code, no files no commits and no branches
+
+# git checkout master
+
+# git push origin master
+
+Here origin means variable storing path of remote repo 
+
+It will now ask to enter username
+
+Username for 'https://github.com':
+
+Here paste the token and press enter key
+
+Again it will ask for password
+
+Password for 'https://ghp_mJ92gregYqNggrggd8AY1NxkWpYigter345Q6PHAM7VxuLg26F4wB@github.com':
+
+JUST PRESS ENTER KEY, do not paste anything for password
+
+It will send the files and commits to remote.
+
+Create files on Remote repo and commit them on Remote repo:
+==================================
+Create a new file on the github repo 
+
+Click on Add file → click on Create new file → give a name to the file → add some content → click on commit → commit on master branch -> click on commit button
