@@ -1,0 +1,33 @@
+Apache MAVEN:
+==================
+1. Maven is build automation tool 
+2. It is a very powerful tool that can be used to build java code
+3. Maven consist of various plugins to help us perform build automation steps
+4. In order compile the code, test the code and package the code or review the code we use maven plugins 
+5. There are almost 40 to 45 plugins in maven however we require only 5 plugins for our build process
+6. It also can automatically download dependencies required for developer to write the code and test cases
+7. Maven output files will always be available in a folder called as target
+8. Maven is a command line tool, its does not have any GUI
+9. maven gives us plugins and their commands which when run performs the required build steps
+
+TASK to be performed             Plugin               COMMAND/GOAL                OUTPUT
+======================================================================================================================
+1. Compile the code              COMPILER             mvn compile                 compiled files - .class files 
+2. Test the code                 SUREFIRE             mvn test                    junit testing reports   
+3. Package the code              PACKAGE              mvn package                 artifact - .war,.jar files
+4. Install dependencies          install              mvn install                 install any pending dependencies or libraries
+5. Review code                    pmd                 mvn pmd:pmd                 code review report - pmd.xml
+6. Code Coverage                 JACOCO               no command                  Coverage report 
+7. Clean target folder           clean                mvn clean                   cleans up maven target folder 
+
+
+
+Ever maven java project given by developer has a file called as pom.xml
+It is heart of maven 
+This file is updated with details by the developer 
+if this file is not present, you cannot run any maven commands 
+This file consists of:
+- Name of the artifact 
+- type of artifact 
+- dependencies 
+- plugins 
